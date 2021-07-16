@@ -1,4 +1,4 @@
-package com.stockmarket.ExchangeService.controller;
+package com.stockmarket.exchangeservice.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stockmarket.ExchangeService.entity.Exchange;
-import com.stockmarket.ExchangeService.service.ExchangeService;
+import com.stockmarket.exchangeservice.entity.Exchange;
+import com.stockmarket.exchangeservice.service.ExchangeService;
 
 @RestController
 public class ExchangeServiceController {

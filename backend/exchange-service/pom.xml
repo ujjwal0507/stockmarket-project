@@ -9,10 +9,10 @@
 		<relativePath>../</relativePath>
 	</parent>
 	<groupId>com.stockmarket</groupId>
-	<artifactId>Sector-Service</artifactId>
+	<artifactId>exchange-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Sector-Service</name>
-	<description>Exchange Microservice for Stock Market Applicaiton</description>
+	<name>Exchange-Service</name>
+	<description>Stock Exchange Microservice for Stock Market Applicaiton</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
