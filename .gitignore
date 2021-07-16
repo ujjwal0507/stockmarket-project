@@ -13,6 +13,10 @@ node_modules
 .springBeans
 .sts4-cache
 
+backend/*-service/.mvn/
+backend/*-service/mvnw
+backend/*-service/mvnw.cmd
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
