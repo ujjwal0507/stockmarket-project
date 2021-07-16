@@ -1,4 +1,4 @@
-package com.stockmarket.ExchangeService;
+package com.stockmarket.exchangeservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

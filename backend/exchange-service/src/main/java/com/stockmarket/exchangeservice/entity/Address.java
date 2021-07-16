@@ -1,4 +1,4 @@
-package com.stockmarket.ExchangeService.entity;
+package com.stockmarket.exchangeservice.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

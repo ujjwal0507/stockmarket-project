@@ -55,8 +55,7 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<module>Exchange-Service</module>
-
+		<module>exchange-service</module>
 	</modules>
 	<build>
 		<plugins>

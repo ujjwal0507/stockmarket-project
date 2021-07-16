@@ -1,4 +1,4 @@
-package com.stockmarket.ExchangeService.service;
+package com.stockmarket.exchangeservice.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stockmarket.ExchangeService.entity.Exchange;
-import com.stockmarket.ExchangeService.repository.ExchangeRepository;
+import com.stockmarket.exchangeservice.entity.Exchange;
+import com.stockmarket.exchangeservice.repository.ExchangeRepository;
 
 @Service
 public class ExchangeService {

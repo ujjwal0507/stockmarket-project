@@ -9,7 +9,7 @@
 		<relativePath>../</relativePath>
 	</parent>
 	<groupId>com.stockmarket</groupId>
-	<artifactId>Exchange-Service</artifactId>
+	<artifactId>exchange-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Exchange-Service</name>
 	<description>Stock Exchange Microservice for Stock Market Applicaiton</description>
@@ -27,5 +27,4 @@
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
-
 </project>
