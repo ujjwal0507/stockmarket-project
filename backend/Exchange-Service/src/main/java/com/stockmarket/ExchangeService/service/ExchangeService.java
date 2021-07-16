@@ -1,6 +1,7 @@
 package com.stockmarket.ExchangeService.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,5 +21,9 @@ public class ExchangeService {
 	
 	public Exchange addExchange(Exchange exchange) {
 		return exchangeRepository.save(exchange);
+	}
+	
+	public Optional<Exchange> getStockExchange(int id) {
+		return exchangeRepository.findById(id);
 	}
 }
