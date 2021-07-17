@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.stockmarket.sectorservice.entity.Company;
 import com.stockmarket.sectorservice.entity.Sector;
 import com.stockmarket.sectorservice.repository.SectorRepository;
 
@@ -25,5 +26,10 @@ public class SectorService {
 	
 	public Optional<Sector> getSectorById(int id) {
 		return sectorRepository.findById(id);
+	}
+	
+	public List<Company> getCompanies(int id){
+		Optional<Sector> sectorOptional = sectorRepository.findById(id);
+		return sectorOptional.isPresent()?sectorOptional.get().getCompanies(): null;
 	}
 }

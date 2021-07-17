@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.stockmarket.sectorservice.entity.Company;
 import com.stockmarket.sectorservice.entity.Sector;
 import com.stockmarket.sectorservice.service.SectorService;
 
@@ -38,6 +39,11 @@ public class SectorServiceController {
 			return ResponseEntity.ok(sectorOptional.get());
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Sector with id "+ id+" not found.");
+	}
+	
+	@GetMapping("/getCompany/{id}")
+	public ResponseEntity<List<Company>> getCompanies(@PathVariable("id") int id){
+		return ResponseEntity.ok(sectorService.getCompanies(id));
 	}
 	
 }
