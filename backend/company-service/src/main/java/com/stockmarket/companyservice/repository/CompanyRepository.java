@@ -12,6 +12,6 @@ import com.stockmarket.companyservice.entity.Company;
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, Integer>{
 	
-	public List<Company> findByNameLike(String pattern);
+	public List<Company> findByNameContainingIgnoreCase(String pattern);
 
 }
