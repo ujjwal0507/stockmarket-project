@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-node_modules
+
 ### STS ###
 .apt_generated
 .classpath
@@ -12,11 +12,6 @@ node_modules
 .settings
 .springBeans
 .sts4-cache
-
-backend/.metadata
-backend/*-service/.mvn/
-backend/*-service/mvnw
-backend/*-service/mvnw.cmd
 
 ### IntelliJ IDEA ###
 .idea
