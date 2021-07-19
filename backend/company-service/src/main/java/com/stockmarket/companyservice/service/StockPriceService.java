@@ -1,5 +1,6 @@
 package com.stockmarket.companyservice.service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,10 @@ public class StockPriceService {
 			}
 		}
 		return failedInserts;
+	}
+	
+	public List<StockPrice> getStockPrice(int companyId, int stockId, String fromTime, String toTime){
+		return stockPriceRepository.getStockPriceList(companyId, stockId, fromTime, toTime);
 	}
 	
 }
