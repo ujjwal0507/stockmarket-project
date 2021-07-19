@@ -54,4 +54,9 @@ public class CompanyController {
 		return ResponseEntity.ok(companyService.getCompanyByPattern(pattern));
 	}
 	
+	@GetMapping("/getCompanyByExchange/{exchangeId}")
+	public ResponseEntity<List<Company>> getCompanyByExchange(@PathVariable("exchangeId") int exchangeId){
+		return ResponseEntity.ok(companyService.getCompanyByExchange(exchangeId));
+	}
+	
 }

@@ -37,4 +37,8 @@ public class CompanyService {
 		return companyRepository.findByNameContainingIgnoreCase(pattern);
 	}
 	
+	public List<Company> getCompanyByExchange(int id){
+		return companyRepository.findCompanyByExchange(id);
+	}
+	
 }

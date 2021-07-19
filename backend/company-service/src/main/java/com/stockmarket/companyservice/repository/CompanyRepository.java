@@ -13,5 +13,7 @@ import com.stockmarket.companyservice.entity.Company;
 public interface CompanyRepository extends JpaRepository<Company, Integer>{
 	
 	public List<Company> findByNameContainingIgnoreCase(String pattern);
-
+	
+	@Query(value="select * from company where id in (select company_id from stock where exchange_id= :exchangeId);", nativeQuery=true)
+	public List<Company> findCompanyByExchange(@Param("exchangeId") int exchangeId);
 }
