@@ -11,7 +11,7 @@
 	<groupId>com.stockmarket</groupId>
 	<artifactId>Sector-Service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Sector-Service</name>
+	<name>sector-service</name>
 	<description>Exchange Microservice for Stock Market Applicaiton</description>
 	<properties>
 		<java.version>11</java.version>
