@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,8 +45,9 @@ public class CompanyController {
 	}
 	
 	@PutMapping("/updateCompany/{id}")
-	public ResponseEntity<Company> updateCompany(@PathVariable("id") int id, @RequestBody Company company) {
-		return ResponseEntity.ok(companyService.updateCompany(id, company));
+	public ResponseEntity<?> updateCompany(@PathVariable("id") int id, @RequestBody Company company) {
+		Company updatedCompany = companyService.updateCompany(id, company);
+		return updatedCompany!=null?ResponseEntity.ok(updatedCompany):ResponseEntity.ok("Company with id "+id+" not found");
 	}
 	
 	@GetMapping("/getCompanyByPattern/{pattern}")

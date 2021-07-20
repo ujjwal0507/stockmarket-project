@@ -30,6 +30,10 @@ public class CompanyService {
 	
 	public Company updateCompany(int id, Company company) {
 		company.setId(id);
+		Optional<Company> companyOptional = getCompany(id);
+		if(companyOptional.isEmpty()) {
+			return null;
+		}
 		return companyRepository.save(company);
 	}
 	
