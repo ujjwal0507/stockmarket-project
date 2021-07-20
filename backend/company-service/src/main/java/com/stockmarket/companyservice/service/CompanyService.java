@@ -41,4 +41,13 @@ public class CompanyService {
 		return companyRepository.findCompanyByExchange(id);
 	}
 	
+	public Company deactivateCompany(int id) {
+		Optional<Company> companyOptional = getCompany(id);
+		if(companyOptional.isEmpty()) {
+			return null;
+		}
+		companyRepository.deleteById(id);
+		return companyOptional.get();
+	}
+	
 }
