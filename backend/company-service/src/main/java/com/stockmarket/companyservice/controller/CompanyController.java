@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stockmarket.companyservice.entity.Company;
-import com.stockmarket.companyservice.entity.Ipo;
 import com.stockmarket.companyservice.service.CompanyService;
 import com.stockmarket.companyservice.service.IpoService;
 
@@ -53,6 +52,11 @@ public class CompanyController {
 	@GetMapping("/getCompanyByPattern/{pattern}")
 	public ResponseEntity<List<Company>> getCompanyByPattern(@PathVariable("pattern") String pattern){
 		return ResponseEntity.ok(companyService.getCompanyByPattern(pattern));
+	}
+	
+	@GetMapping("/getCompanyByExchange/{exchangeId}")
+	public ResponseEntity<List<Company>> getCompanyByExchange(@PathVariable("exchangeId") int exchangeId){
+		return ResponseEntity.ok(companyService.getCompanyByExchange(exchangeId));
 	}
 	
 }

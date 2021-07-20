@@ -34,7 +34,11 @@ public class CompanyService {
 	}
 	
 	public List<Company> getCompanyByPattern(String pattern){
-		return companyRepository.findByNameLike(pattern);
+		return companyRepository.findByNameContainingIgnoreCase(pattern);
+	}
+	
+	public List<Company> getCompanyByExchange(int id){
+		return companyRepository.findCompanyByExchange(id);
 	}
 	
 }
