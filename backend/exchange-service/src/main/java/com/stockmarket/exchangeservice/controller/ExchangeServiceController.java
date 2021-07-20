@@ -48,7 +48,7 @@ public class ExchangeServiceController {
 	
 	@GetMapping("/getCompanyByExchange/{exchangeId}")
 	public ResponseEntity getCompanyByExchange(@PathVariable("exchangeId") int exchangeId) {
-		String url = "http://localhost:8082/company/getCompanyByExchange/"+exchangeId;
+		String url = "http://COMPANY-SERVICE/company/getCompanyByExchange/"+exchangeId;
 		return restTemplate.getForEntity(url, String.class);
 	}
 }

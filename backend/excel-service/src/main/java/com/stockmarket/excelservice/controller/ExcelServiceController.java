@@ -23,7 +23,7 @@ public class ExcelServiceController {
 	
 	@PostMapping("/addStockPrice")
 	public ResponseEntity<List<ExcelDataDTO>> addStockPrice(@RequestBody List<ExcelDataDTO> excelDataDtos){
-		String url = "http://localhost:8082/company/addStockPrice";
+		String url = "http://COMPANY-SERVICE/company/addStockPrice";
 		List<ExcelDataDTO> failedRequests = restTemplate.postForEntity(url, excelDataDtos, ArrayList.class).getBody();
 		return failedRequests.size()==0? ResponseEntity.ok(failedRequests): ResponseEntity.status(HttpStatus.BAD_REQUEST).body(failedRequests);
 	}
