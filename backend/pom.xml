@@ -54,6 +54,7 @@
 		<module>company-service</module>
 		<module>excel-service</module>
 		<module>eureka-service</module>
+		<module>api-gateway-service</module>
 	</modules>
 	<build>
 		<plugins>
