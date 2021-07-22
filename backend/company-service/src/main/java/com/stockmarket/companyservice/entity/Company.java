@@ -2,6 +2,7 @@ package com.stockmarket.companyservice.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -9,7 +10,7 @@ import javax.persistence.ManyToOne;
 public class Company {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	private String name;
@@ -22,12 +23,14 @@ public class Company {
 	
 	@ManyToOne
 	private Sector sector;
+	
+	private String directors;
 
 	public Company() {
 		super();
 	}
 
-	public Company(int id, String name, long turnover, String ceo, String brief, Sector sector) {
+	public Company(int id, String name, long turnover, String ceo, String brief, Sector sector, String directors) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -84,5 +87,15 @@ public class Company {
 	public void setSector(Sector sector) {
 		this.sector = sector;
 	}
+
+	public String getDirectors() {
+		return directors;
+	}
+
+	public void setDirectors(String directors) {
+		this.directors = directors;
+	}
+	
+	
 	
 }

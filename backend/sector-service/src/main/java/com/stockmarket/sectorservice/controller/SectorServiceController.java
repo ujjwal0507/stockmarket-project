@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stockmarket.sectorservice.entity.Company;
@@ -17,6 +18,7 @@ import com.stockmarket.sectorservice.entity.Sector;
 import com.stockmarket.sectorservice.service.SectorService;
 
 @RestController
+@RequestMapping("/sector")
 public class SectorServiceController {
 
 	@Autowired
@@ -33,7 +35,7 @@ public class SectorServiceController {
 	}
 	
 	@GetMapping("/getSector/{id}")
-	public ResponseEntity getSector(@PathVariable("id") int id) {
+	public ResponseEntity<?> getSector(@PathVariable("id") int id) {
 		Optional<Sector> sectorOptional = sectorService.getSectorById(id);
 		if(sectorOptional.isPresent()) {
 			return ResponseEntity.ok(sectorOptional.get());

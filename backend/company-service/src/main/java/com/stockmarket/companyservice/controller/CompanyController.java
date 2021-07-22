@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +27,7 @@ public class CompanyController {
 	
 	@Autowired
 	public IpoService ipoService;
-		
+	
 	@GetMapping("/getCompany")
 	public ResponseEntity<List<Company>> getComanies(){
 		return ResponseEntity.ok(companyService.getCompanies());
@@ -39,14 +39,15 @@ public class CompanyController {
 	}
 	
 	@GetMapping("/getCompany/{id}")
-	public ResponseEntity getCompany(@PathVariable("id") int id){
+	public ResponseEntity<?> getCompany(@PathVariable("id") int id){
 		Optional<Company> companyOptional = companyService.getCompany(id);
-		return companyOptional.isPresent()?ResponseEntity.ok(companyOptional.get()): ResponseEntity.status(HttpStatus.NOT_FOUND).body("Company with id "+id+" not found.");
+		return companyOptional.isPresent()?ResponseEntity.ok(companyOptional.get()): ResponseEntity.ok("Company with id "+id+" not found.");
 	}
 	
 	@PutMapping("/updateCompany/{id}")
-	public ResponseEntity<Company> updateCompany(@PathVariable("id") int id, @RequestBody Company company) {
-		return ResponseEntity.ok(companyService.updateCompany(id, company));
+	public ResponseEntity<?> updateCompany(@PathVariable("id") int id, @RequestBody Company company) {
+		Company updatedCompany = companyService.updateCompany(id, company);
+		return updatedCompany!=null?ResponseEntity.ok(updatedCompany):ResponseEntity.ok("Company with id "+id+" not found");
 	}
 	
 	@GetMapping("/getCompanyByPattern/{pattern}")
@@ -57,6 +58,12 @@ public class CompanyController {
 	@GetMapping("/getCompanyByExchange/{exchangeId}")
 	public ResponseEntity<List<Company>> getCompanyByExchange(@PathVariable("exchangeId") int exchangeId){
 		return ResponseEntity.ok(companyService.getCompanyByExchange(exchangeId));
+	}
+	
+	@DeleteMapping("/deactivateCompany/{id}")
+	public ResponseEntity<?> deactivateCompany(@PathVariable int id){
+		Company deletedCompany = companyService.deactivateCompany(id);
+		return deletedCompany!=null?ResponseEntity.ok(deletedCompany): ResponseEntity.ok("Company with id "+id+" not found.");
 	}
 	
 }

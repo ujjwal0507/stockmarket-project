@@ -30,6 +30,10 @@ public class CompanyService {
 	
 	public Company updateCompany(int id, Company company) {
 		company.setId(id);
+		Optional<Company> companyOptional = getCompany(id);
+		if(companyOptional.isEmpty()) {
+			return null;
+		}
 		return companyRepository.save(company);
 	}
 	
@@ -39,6 +43,15 @@ public class CompanyService {
 	
 	public List<Company> getCompanyByExchange(int id){
 		return companyRepository.findCompanyByExchange(id);
+	}
+	
+	public Company deactivateCompany(int id) {
+		Optional<Company> companyOptional = getCompany(id);
+		if(companyOptional.isEmpty()) {
+			return null;
+		}
+		companyRepository.deleteById(id);
+		return companyOptional.get();
 	}
 	
 }
