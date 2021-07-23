@@ -9,7 +9,6 @@ import { AuthService } from './service/auth.service';
 export class AppComponent {
 
   constructor(private authService: AuthService){
-    authService.authenticate("user", "f");
+    authService.authenticate("user", "user");
   }
-
 }
