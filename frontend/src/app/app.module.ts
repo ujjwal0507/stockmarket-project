@@ -15,6 +15,7 @@ import { ExchangeComponent } from './component/exchange/exchange.component';
 import { AddExchangeComponent } from './component/add-exchange/add-exchange.component';
 import { CompanyComponent } from './component/company/company.component';
 import { IpoComponent } from './component/ipo/ipo.component';
+import { AddCompanyComponent } from './component/add-company/add-company.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { IpoComponent } from './component/ipo/ipo.component';
     AddExchangeComponent,
     CompanyComponent,
     IpoComponent,
+    AddCompanyComponent,
   ],
   imports: [
     CommonModule,
