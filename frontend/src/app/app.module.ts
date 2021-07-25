@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ExchangeComponent } from './component/exchange/exchange.component';
 import { AddExchangeComponent } from './component/add-exchange/add-exchange.component';
 import { CompanyComponent } from './component/company/company.component';
+import { IpoComponent } from './component/ipo/ipo.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CompanyComponent } from './component/company/company.component';
     ExchangeComponent,
     AddExchangeComponent,
     CompanyComponent,
+    IpoComponent,
   ],
   imports: [
     CommonModule,
