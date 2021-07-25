@@ -10,23 +10,23 @@ import { environment } from 'src/environments/environment';
 })
 export class SectorService {
 
-  private apiUrl: string;
+  private apiHome: string;
 
-  private api: {[apiName:string]: string};
+  private apiPath: {[apiName:string]: string};
 
   constructor(private http: HttpClient) {
-    this.apiUrl = environment.apiUrl+"/sector";
-    this.api = {
-      "getSector": this.apiUrl+"/getSector",
-      "getCompanyBySector": this.apiUrl+"/getCompany"
+    this.apiHome = environment.apiUrl+"/sector";
+    this.apiPath = {
+      "getSector": this.apiHome+"/getSector",
+      "getCompanyBySector": this.apiHome+"/getCompany"
     }
   }
 
   getSector(): Observable<Sector[]>{
-    return this.http.get<Sector[]>(this.api.getSector);
+    return this.http.get<Sector[]>(this.apiPath.getSector);
   }
 
   getCompanyBySector(id: number): Observable<Company[]>{
-    return this.http.get<Company[]>(this.api.getCompanyBySector+"/"+id);
+    return this.http.get<Company[]>(this.apiPath.getCompanyBySector+"/"+id);
   }
 }

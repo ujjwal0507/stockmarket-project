@@ -1,0 +1,40 @@
+<app-navbar [state]="state"></app-navbar>
+<div class="container d-flex flex-row justify-content-center">
+  <form class="form-div mt-5 col-9">
+    <h1 class="m-3">
+      Add Stock Exchange
+    </h1>
+    <div class="form-group m-3">
+      <label class="m-1">Name</label>
+      <input type="text" name="name" class="form-control" placeholder="Enter name" required [(ngModel)]="exchange.name">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">Brief</label>
+      <input type="text" name="brief" class="form-control" placeholder="Enter Brief" required [(ngModel)]="exchange.brief">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">Street</label>
+      <input type="text" name="street" class="form-control" placeholder="Enter street" required [(ngModel)]="exchange.address.street">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">City</label>
+      <input type="text" name="city" class="form-control" placeholder="Enter city" required [(ngModel)]="exchange.address.city">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">Country</label>
+      <input type="text" name="country" class="form-control" placeholder="Enter country" required [(ngModel)]="exchange.address.country">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">zip</label>
+      <input type="number" name="zip" class="form-control" placeholder="Enter zip" required [(ngModel)]="exchange.address.zip">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">Remark</label>
+      <input type="text" name="country" class="form-control" placeholder="Enter remark" required [(ngModel)]="exchange.remark">
+    </div>
+    <div class="text-center mt-5 m-3">
+        <button class="btn btn-dark col-5 m-3" (click)="onSubmit()">Submit</button>
+        <button type="reset" class="btn btn-secondary col-5 m-3">Reset</button>
+    </div>
+  </form>
+</div>
