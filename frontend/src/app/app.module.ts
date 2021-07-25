@@ -16,6 +16,7 @@ import { AddExchangeComponent } from './component/add-exchange/add-exchange.comp
 import { CompanyComponent } from './component/company/company.component';
 import { IpoComponent } from './component/ipo/ipo.component';
 import { AddCompanyComponent } from './component/add-company/add-company.component';
+import { StockComponent } from './component/stock/stock.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AddCompanyComponent } from './component/add-company/add-company.compone
     CompanyComponent,
     IpoComponent,
     AddCompanyComponent,
+    StockComponent,
   ],
   imports: [
     CommonModule,

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Company } from '../model/Company';
+import { Stock } from '../model/Stock';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -21,7 +22,8 @@ export class CompanyService {
       addCompany: this.apiHome+"/addCompany",
       updateCompany: this.apiHome+"/updateCompany",
       deactivateCompany: this.apiHome+"/deactivateCompany",
-      getCompanyByPattern: this.apiHome+"/getCompanyByPattern"
+      getCompanyByPattern: this.apiHome+"/getCompanyByPattern",
+      addStock: this.apiHome+"/addStock"
     };
   }
 
@@ -50,5 +52,11 @@ export class CompanyService {
 
   public getCompanyByPattern(pattern: string): Observable<Company[]>{
     return this.http.get<Company[]>(this.apiPath.getCompanyByPattern+"/"+pattern);
+  }
+
+  public addStock(stock: Stock){
+    const httpHeaders: HttpHeaders = new HttpHeaders();
+    httpHeaders.set("Access-Control-Allow-Origin", "*");
+    return this.http.post<Stock>(this.apiPath.addStock, stock, {headers: httpHeaders});
   }
 }
