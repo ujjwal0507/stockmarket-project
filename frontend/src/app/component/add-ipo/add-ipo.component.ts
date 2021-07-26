@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Company } from 'src/app/model/Company';
 import { Exchange } from 'src/app/model/Exchange';
 import { IPO } from 'src/app/model/IPO';
@@ -24,7 +25,7 @@ export class AddIpoComponent implements OnInit {
   public companyTitle: string;
   public exchangeTitle: string;
 
-  constructor(private authService: AuthService, private companyService: CompanyService, private exchangeService: ExchangeService, private ipoService: IpoService) {
+  constructor(private authService: AuthService, private companyService: CompanyService, private exchangeService: ExchangeService, private ipoService: IpoService, private router: Router) {
     this.state = this.authService.getState();
     this.ipo = {
       "id": 0,
@@ -87,6 +88,7 @@ export class AddIpoComponent implements OnInit {
     this.ipoService.addIpo(this.ipo).subscribe(ipo=>{
 
     });
+    this.router.navigate(['/ipo']);
   }
 
   onReset(){

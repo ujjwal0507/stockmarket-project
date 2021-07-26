@@ -2,7 +2,7 @@
 <div class="container mt-5">
   <div class="d-flex flex-row">
     <h1 class="col-8">Stock Exchanges</h1>
-    <button class="btn btn-dark col-4 p-0">+ Add Exchange</button>
+    <button class="btn btn-dark col-4 p-0" routerLink="/addExchange">+ Add Exchange</button>
   </div>
   <div>
     <ul class="list-group mt-5 align-items-right" *ngIf="exchanges.length">
@@ -18,7 +18,7 @@
         <p class="col-3">{{exchange.address.street+","+exchange.address.city+","+exchange.address.country+","+exchange.address.zip}}</p>
         <p class="col-2">{{exchange.brief}}</p>
         <p class="col-2">{{exchange.remark}}</p>
-        <button class="btn btn-dark col-3">List Companies</button>
+        <button class="btn btn-dark col-3" routerLink="/stock">Add Companies</button>
       </li>
     </ul>
   </div>

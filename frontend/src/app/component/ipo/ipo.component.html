@@ -3,7 +3,7 @@
   <div *ngIf="state==='admin'">
     <div class="d-flex flex-row">
       <h1 class="col-8">IPO</h1>
-      <button class="btn btn-dark col-4 p-0" height="20px">+ Add IPO</button>
+      <button class="btn btn-dark col-4 p-0" height="20px" routerLink="/addIpo">+ Add IPO</button>
     </div>
     <div>
       <ul class="list-group mt-5 align-items-right" *ngIf="ipos.length">

@@ -9,8 +9,6 @@ import { StockPriceService } from './service/stock-price.service';
 })
 export class AppComponent {
 
-  constructor(private authService: AuthService, private stockPriceService: StockPriceService){
-    authService.authenticate("admin", "admin");
-    stockPriceService.getStockPrice(1,1,"2021-07-20T01:30:00.000+00:00","2021-07-20T14:50:00.000+00:00")
+  constructor(){
   }
 }

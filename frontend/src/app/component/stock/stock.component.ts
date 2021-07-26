@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Company } from 'src/app/model/Company';
 import { Exchange } from 'src/app/model/Exchange';
 import { Stock } from 'src/app/model/Stock';
@@ -23,7 +24,7 @@ export class StockComponent implements OnInit {
   public companyTitle: string;
   public exchangeTitle: string;
 
-  constructor(private authService: AuthService, private companyService: CompanyService, private exchangeService: ExchangeService) {
+  constructor(private authService: AuthService, private companyService: CompanyService, private exchangeService: ExchangeService, private router: Router) {
     this.state = authService.getState();
     this.stock = {
       "id": 0,
@@ -81,6 +82,7 @@ export class StockComponent implements OnInit {
     this.companyService.addStock(this.stock).subscribe(stock=>{
 
     });
+    this.router.navigate(['/exchange']);
   }
 
   onReset(){

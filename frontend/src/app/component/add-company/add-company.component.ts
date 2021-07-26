@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Company } from 'src/app/model/Company';
 import { Sector } from 'src/app/model/Sector';
 import { AuthService } from 'src/app/service/auth.service';
@@ -20,7 +21,7 @@ export class AddCompanyComponent implements OnInit {
 
   public dropdownTitle: string;
 
-  constructor(private authService: AuthService, private companyService: CompanyService, private sectorService: SectorService) {
+  constructor(private authService: AuthService, private companyService: CompanyService, private sectorService: SectorService, private router: Router) {
     this.state = authService.getState();
     this.company = {
       id:0,
@@ -47,6 +48,7 @@ export class AddCompanyComponent implements OnInit {
     this.companyService.addCompany(this.company).subscribe(company=>{
       console.log(company);
     });
+    this.router.navigate(['/company']);
   }
 
   onSectorSelected(sector: Sector){
