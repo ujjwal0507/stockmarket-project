@@ -17,19 +17,21 @@ export class AddExchangeComponent implements OnInit {
   constructor(private authService: AuthService, private exchangeService: ExchangeService) {
     this.state = authService.getState();
     this.exchange = {
-      "name": "New York Stock Exchange",
-      "brief": "Brief 3",
+      id: 0,
+      "name": "",
+      "brief": "",
       "address": {
-          "street": "Wall Street",
-          "city": "New York",
-          "country": "USA",
-          "zip": 10005
+          "street": "",
+          "city": "",
+          "country": "",
+          "zip": 0
       },
-      "remark": "Remark 3"
+      "remark": ""
     };
   }
 
   ngOnInit(): void {
+
   }
 
   onSubmit(): void{

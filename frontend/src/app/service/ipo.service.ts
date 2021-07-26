@@ -17,7 +17,8 @@ export class IpoService {
     this.apiHome = environment.apiUrl+"/company";
     this.apiPath = {
       getIpo: this.apiHome+"/getIpo",
-      addIpo: this.apiHome+"/addIpo",
+      // addIpo: this.apiHome+"/addIpo",
+      addIpo:"http://localhost:8082/company/ipo",
       updateIpo: this.apiHome+"/ipo",
       getIpoByCompany: this.apiHome+"/getIpoByCompany"
     }

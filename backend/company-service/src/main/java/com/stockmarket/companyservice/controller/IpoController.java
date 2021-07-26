@@ -17,7 +17,7 @@ import com.stockmarket.companyservice.entity.Ipo;
 import com.stockmarket.companyservice.service.IpoService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping("/company")
 public class IpoController {
 	

@@ -52,7 +52,7 @@ export class IpoComponent implements OnInit {
       },
       "pricePerShare": 0,
       "totalShares": 0,
-      "openDateTime": new Date(),
+      "openDateTime": "",
       "remarks": ""
     }
     this.filteredIpo = [];
@@ -104,7 +104,7 @@ export class IpoComponent implements OnInit {
       },
       "pricePerShare": 0,
       "totalShares": 0,
-      "openDateTime": new Date(),
+      "openDateTime": "",
       "remarks": ""
     }
   }

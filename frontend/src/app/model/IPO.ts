@@ -7,6 +7,6 @@ export interface IPO{
   exchange: Exchange;
   pricePerShare: number;
   totalShares: number;
-  openDateTime: Date;
+  openDateTime: string;
   remarks: string;
 }
