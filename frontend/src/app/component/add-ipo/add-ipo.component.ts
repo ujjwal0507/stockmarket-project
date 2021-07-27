@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Company } from 'src/app/model/Company';
 import { Exchange } from 'src/app/model/Exchange';
 import { IPO } from 'src/app/model/IPO';
@@ -19,14 +19,23 @@ export class AddIpoComponent implements OnInit {
 
   public ipo: IPO;
 
+  public companyId: number;
+
   public exchanges: Exchange[];
   public companies: Company[];
 
   public companyTitle: string;
   public exchangeTitle: string;
 
-  constructor(private authService: AuthService, private companyService: CompanyService, private exchangeService: ExchangeService, private ipoService: IpoService, private router: Router) {
+  public openDateTime: Date;
+
+  constructor(private authService: AuthService, private companyService: CompanyService, private exchangeService: ExchangeService, private ipoService: IpoService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.state = this.authService.getState();
+    this.companyTitle = "Please select a company.",
+    this.exchangeTitle = "Please select an exchange."
+    this.companies = [];
+    this.exchanges = [];
+    this.companyId = this.activatedRoute.snapshot.params["id"];
     this.ipo = {
       "id": 0,
       "company": {
@@ -60,15 +69,19 @@ export class AddIpoComponent implements OnInit {
       "openDateTime": "",
       "remarks": ""
     }
-    this.companyTitle = "Please select a company.",
-    this.exchangeTitle = "Please select an exchange."
-    this.companies = [];
-    this.exchanges = [];
+    this.openDateTime = new Date();
   }
 
   ngOnInit(): void {
     this.companyService.getCompany().subscribe(companies=>this.companies = companies);
     this.exchangeService.getAllExchanges().subscribe(exchanges=> this.exchanges = exchanges);
+    if(this.companyId){
+      this.ipoService.getIpoByCompany(this.companyId).subscribe(ipo=> {
+        this.ipo = ipo;
+        this.companyTitle = this.ipo.company.name;
+        this.exchangeTitle = this.ipo.exchange.name;
+      });
+    }
   }
 
   onCompanySelected(company: Company){

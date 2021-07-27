@@ -1,8 +1,11 @@
 <app-navbar [state]="state"></app-navbar>
 <div class="container d-flex flex-row justify-content-center">
   <form class="form-div mt-5 col-9">
-    <h1 class="m-3">
+    <h1 class="m-3" *ngIf="!this.companyId">
       Add IPO
+    </h1>
+    <h1 class="m-3" *ngIf="this.companyId">
+      Update IPO
     </h1>
     <div class="d-flex flex-row mt-5">
       <div class="dropdown col-12 p-0">
