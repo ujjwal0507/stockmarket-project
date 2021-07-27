@@ -1,8 +1,11 @@
 <app-navbar [state]="state"></app-navbar>
 <div class="container d-flex flex-row justify-content-center">
   <form class="form-div mt-5 col-9">
-    <h1 class="m-3">
+    <h1 class="m-3" *ngIf="!this.companyId">
       Add Company
+    </h1>
+    <h1 class="m-3" *ngIf="this.companyId">
+      Update Company
     </h1>
     <div class="form-group m-3">
       <label class="m-1">Name</label>

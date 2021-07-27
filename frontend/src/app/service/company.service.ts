@@ -21,6 +21,7 @@ export class CompanyService {
       getCompany: this.apiHome+"/getCompany",
       addCompany: this.apiHome+"/addCompany",
       updateCompany: this.apiHome+"/updateCompany",
+      getCompanyById: this.apiHome+'/getCompany',
       deactivateCompany: this.apiHome+"/deactivateCompany",
       getCompanyByPattern: this.apiHome+"/getCompanyByPattern",
       addStock: this.apiHome+"/addStock"
@@ -58,5 +59,9 @@ export class CompanyService {
     const httpHeaders: HttpHeaders = new HttpHeaders();
     httpHeaders.set("Access-Control-Allow-Origin", "*");
     return this.http.post<Stock>(this.apiPath.addStock, stock, {headers: httpHeaders});
+  }
+
+  public getCompanyById(id: number): Observable<Company>{
+    return this.http.get<Company>(this.apiPath.getCompanyById+'/'+id);
   }
 }

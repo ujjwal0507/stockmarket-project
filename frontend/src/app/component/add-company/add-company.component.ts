@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Company } from 'src/app/model/Company';
 import { Sector } from 'src/app/model/Sector';
 import { AuthService } from 'src/app/service/auth.service';
@@ -19,9 +19,11 @@ export class AddCompanyComponent implements OnInit {
 
   public sectors: Sector[];
 
+  public companyId: number;
+
   public dropdownTitle: string;
 
-  constructor(private authService: AuthService, private companyService: CompanyService, private sectorService: SectorService, private router: Router) {
+  constructor(private authService: AuthService, private companyService: CompanyService, private sectorService: SectorService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.state = authService.getState();
     this.company = {
       id:0,
@@ -38,10 +40,17 @@ export class AddCompanyComponent implements OnInit {
     }
     this.sectors = [];
     this.dropdownTitle = "Please select the sector"
+    this.companyId = this.activatedRoute.snapshot.params["id"];
   }
 
   ngOnInit(): void {
     this.sectorService.getSector().subscribe((sectors)=>this.sectors = sectors);
+    if(this.companyId){
+      this.companyService.getCompanyById(this.companyId).subscribe(company=>{
+        this.company = company;
+        this.dropdownTitle = this.company.sector.name;
+      });
+    }
   }
 
   onSubmit(){
