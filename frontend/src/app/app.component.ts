@@ -9,7 +9,6 @@ import { StockPriceService } from './service/stock-price.service';
 })
 export class AppComponent {
 
-  constructor(private authService: AuthService){
-    this.authService.authenticate("admin", "admin");
+  constructor(){
   }
 }

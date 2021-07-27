@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -10,9 +10,11 @@ import { AuthService } from 'src/app/service/auth.service';
 export class NavbarComponent implements OnInit {
 
   @Input() public state: string;
+  private currentPage: string;
 
   constructor(private authService: AuthService, private router: Router) {
     this.state = "";
+    this.currentPage = this.router.url;
   }
 
   ngOnInit(): void {
@@ -20,7 +22,9 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     this.authService.authenticate("fsg","fsrgrw");
-    this.router.navigate([""]);
-    // location.reload();
+    this.router.navigate(["/"]);
+    if(this.currentPage==="/"){
+      location.reload();
+    }
   }
 }
