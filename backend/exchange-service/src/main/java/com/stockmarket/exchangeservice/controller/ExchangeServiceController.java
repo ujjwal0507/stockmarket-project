@@ -20,7 +20,7 @@ import com.stockmarket.exchangeservice.entity.Exchange;
 import com.stockmarket.exchangeservice.service.ExchangeService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping("/exchange")
 public class ExchangeServiceController {
 	

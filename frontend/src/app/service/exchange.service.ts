@@ -29,7 +29,7 @@ export class ExchangeService {
   addExchange(exchange: Exchange): Observable<any>{
     const httpHeaders: HttpHeaders = new HttpHeaders();
     httpHeaders.set("Access-Control-Allow-Origin", "*");
-    return this.http.post<Exchange>(this.apiPath.addExchange, exchange, {headers: httpHeaders});
+    return this.http.post<Exchange>("http://localhost:8081/exchange/addExchange", exchange, {headers: httpHeaders});
   }
 
 }

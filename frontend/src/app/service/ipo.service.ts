@@ -17,9 +17,8 @@ export class IpoService {
     this.apiHome = environment.apiUrl+"/company";
     this.apiPath = {
       getIpo: this.apiHome+"/getIpo",
-      // addIpo: this.apiHome+"/addIpo",
-      addIpo:"http://localhost:8082/company/ipo",
-      updateIpo: this.apiHome+"/ipo",
+      addIpo:"http://localhost:8082/company/addIpo",
+      updateIpo: "http://localhost:8082/company/ipo/",
       getIpoByCompany: this.apiHome+"/getIpoByCompany"
     }
   }
@@ -38,10 +37,11 @@ export class IpoService {
     const httpHeaders: HttpHeaders = new HttpHeaders();
     httpHeaders.set("Access-Control-Allow-Origin", "*");
     var id: number = ipo.id;
-    return this.http.put<IPO>(this.apiPath.updateIpo+"/"+id, ipo, {headers: httpHeaders});
+    return this.http.put<IPO>(this.apiPath.updateIpo+id, ipo, {headers: httpHeaders});
   }
 
   public getIpoByCompany(id: number): Observable<IPO>{
+    console.log("Update:", this.apiPath.getIpoByCompany+"/"+id);
     return this.http.get<IPO>(this.apiPath.getIpoByCompany+"/"+id);
   }
 }

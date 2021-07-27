@@ -29,6 +29,6 @@ export class StockPriceService {
   public addStockPrice(excelData: ExcelData[]): Observable<ExcelData[]>{
     const httpHeaders: HttpHeaders = new HttpHeaders();
     httpHeaders.set("Access-Control-Allow-Origin", "*");
-    return this.http.post<ExcelData[]>(this.apiPath.addStockPrice, excelData, {headers: httpHeaders});
+    return this.http.post<ExcelData[]>("http://localhost:8086/excel/addStockPrice", excelData, {headers: httpHeaders});
   }
 }

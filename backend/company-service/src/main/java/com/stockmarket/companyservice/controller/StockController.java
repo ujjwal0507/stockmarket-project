@@ -15,7 +15,7 @@ import com.stockmarket.companyservice.entity.Stock;
 import com.stockmarket.companyservice.service.StockService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping("/company")
 public class StockController {
 

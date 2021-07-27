@@ -17,14 +17,12 @@ export class ExcelDataComponent implements OnInit {
 
   public unsuccessful: number;
   public total: number;
-  public successful: number;
   public statusVisible: boolean;
 
   constructor(private authService: AuthService, private stockPriceService: StockPriceService) {
     this.state = authService.getState();
     this.fileData = [];
     this.unsuccessful = 0;
-    this.successful = 0;
     this.total = 0;
     this.statusVisible = false;
   }
@@ -60,10 +58,10 @@ export class ExcelDataComponent implements OnInit {
         });
       }
     });
+    console.log(excelData);
     this.total = excelData.length;
     this.stockPriceService.addStockPrice(excelData).subscribe((unsuccessful)=>{
       this.unsuccessful = unsuccessful.length;
-      this.successful = this.total - this.unsuccessful;
     });
     this.statusVisible = true;
   }

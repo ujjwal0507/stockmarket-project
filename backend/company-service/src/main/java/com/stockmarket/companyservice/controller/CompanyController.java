@@ -20,7 +20,7 @@ import com.stockmarket.companyservice.service.CompanyService;
 import com.stockmarket.companyservice.service.IpoService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RequestMapping("/company")
 public class CompanyController {
 	
@@ -37,6 +37,7 @@ public class CompanyController {
 	
 	@PostMapping("/addCompany")
 	public ResponseEntity<Company> addCompany(@RequestBody Company company){
+		System.out.println("----------------\n\n\n\n\nHello\n\n\n\n----------------");
 		return ResponseEntity.ok(companyService.addCompany(company));
 	}
 	

@@ -12,9 +12,9 @@
       <label>Password</label>
       <input type="password" name="password" class="form-control" placeholder="Password" required [(ngModel)]="password">
     </div>
-    <div class="text-center">
-        <button type="submit" class="btn btn-dark col-6" (click)="onSubmit()">Submit</button>
-        <button type="reset" class="btn btn-secondary col-6">Reset</button>
+    <div class="text-center d-flex flex-row ">
+      <button class="btn btn-dark col-6 mt-3 me-2 flex-grow-1" (click)="onSubmit()">Submit</button>
+      <button type="reset" class="btn btn-secondary col-6 mt-3 flex-grow-1">Reset</button>
     </div>
-</form>
+  </form>
 </div>

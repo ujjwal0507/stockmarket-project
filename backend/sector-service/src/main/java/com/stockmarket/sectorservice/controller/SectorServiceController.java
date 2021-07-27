@@ -19,8 +19,8 @@ import com.stockmarket.sectorservice.entity.Sector;
 import com.stockmarket.sectorservice.service.SectorService;
 
 @RestController
+@CrossOrigin(origins="*")
 @RequestMapping("/sector")
-@CrossOrigin(origins="http://localhost:4200")
 public class SectorServiceController {
 
 	@Autowired
