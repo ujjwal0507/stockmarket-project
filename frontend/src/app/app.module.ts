@@ -22,6 +22,7 @@ import { ComparisonComponent } from './component/comparison/comparison.component
 import { HighchartsChartComponent, HighchartsChartModule } from 'highcharts-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { ExcelDataComponent } from './component/excel-data/excel-data.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RouterModule } from '@angular/router';
     StockComponent,
     AddIpoComponent,
     ComparisonComponent,
+    ExcelDataComponent,
   ],
   imports: [
     CommonModule,

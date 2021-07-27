@@ -27,7 +27,7 @@
       <label class="m-1">Turnover</label>
       <input type="number" name="turnover" class="form-control" placeholder="Enter turnover" required [(ngModel)]="company.turnover">
     </div>
-    <div class="d-flex flex-row mt-5">
+    <div class="d-flex flex-row m-3 mt-5">
       <div class="dropdown col-12 p-0">
         <button class="btn btn-light btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           {{dropdownTitle}}
@@ -39,9 +39,9 @@
         </ul>
       </div>
     </div>
-    <div class="text-center mt-5 m-3">
-        <button class="btn btn-dark col-5 m-3" (click)="onSubmit()">Submit</button>
-        <button type="reset" class="btn btn-secondary col-5 m-3" (click)="dropdownTitle='Please Select Sector'">Reset</button>
-    </div>
+    <div class="text-center m-3 d-flex flex-row">
+      <button class="btn btn-dark col-6 mt-3 me-2 flex-grow-1" (click)="onSubmit()">Submit</button>
+      <button type="reset" class="btn btn-secondary col-6 mt-3 flex-grow-1" (click)="onReset()">Reset</button>
+  </div>
   </form>
 </div>

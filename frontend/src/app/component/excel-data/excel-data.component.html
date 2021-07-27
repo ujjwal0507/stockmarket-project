@@ -1,0 +1,31 @@
+<app-navbar [state]="state"></app-navbar>
+<div class="container p-5">
+  <form ng-model="vm.file" my-file-upload>
+    <div class="form-group">
+      <label for="fileName" class="m-1">Select a file</label>
+      <div class="input-group">
+        <input type="file" charset="UTF-8" (change)="onFileChange($event)" id="fileName" class="form-control" required>
+      </div>
+    </div>
+
+    <div class="text-center mt-3 d-flex flex-row">
+      <button class="btn btn-dark col-6 mt-3 me-2 flex-grow-1" (click)="onSubmit()">Submit</button>
+      <button type="reset" class="btn btn-secondary col-6 mt-3 flex-grow-1" >Reset</button>
+  </div>
+  </form>
+  <div *ngIf="statusVisible">
+    <ul class="list-group mt-5 align-items-right">
+      <li class="list-group-item d-flex flex-row">
+        <p class="col-4"><b>Total Uploaded</b></p>
+        <p class="col-4"><b>Successful Uploads</b></p>
+        <p class="col-4"><b>Unsuccessful Uploads</b></p>
+
+      </li>
+      <li class="list-group-item d-flex flex-row">
+        <p class="col-4">{{total}}</p>
+        <p class="col-4">{{total-unsuccessful}}</p>
+        <p class="col-4">{{unsuccessful}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

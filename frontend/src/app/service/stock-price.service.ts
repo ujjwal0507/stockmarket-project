@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ExcelData } from '../model/ExcelData';
 import { StockPrice } from '../model/StockPrice';
 
 @Injectable({
@@ -16,7 +17,8 @@ export class StockPriceService {
   constructor(private http: HttpClient) {
     this.apiHome = environment.apiUrl;
     this.apiPath = {
-      getStockPrice: this.apiHome+"/company/getStockPrice"
+      getStockPrice: this.apiHome+"/company/getStockPrice",
+      addStockPrice: this.apiHome+"/excel/addStockPrice"
     }
   }
 
@@ -24,5 +26,9 @@ export class StockPriceService {
     return this.http.get<StockPrice[]>(this.apiPath.getStockPrice+`/companyId/${companyId}/exchangeId/${exchangeId}/fromTime/${encodeURIComponent(fromTime)}/toTime/${encodeURIComponent(toTime)}`);
   }
 
-
+  public addStockPrice(excelData: ExcelData[]): Observable<ExcelData[]>{
+    const httpHeaders: HttpHeaders = new HttpHeaders();
+    httpHeaders.set("Access-Control-Allow-Origin", "*");
+    return this.http.post<ExcelData[]>(this.apiPath.addStockPrice, excelData, {headers: httpHeaders});
+  }
 }

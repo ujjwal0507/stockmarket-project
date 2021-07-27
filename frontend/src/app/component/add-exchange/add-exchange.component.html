@@ -32,9 +32,9 @@
       <label class="m-1">Remark</label>
       <input type="text" name="country" class="form-control" placeholder="Enter remark" required [(ngModel)]="exchange.remark">
     </div>
-    <div class="text-center mt-5 m-3">
-        <button class="btn btn-dark col-5 m-3" (click)="onSubmit()">Submit</button>
-        <button type="reset" class="btn btn-secondary col-5 m-3">Reset</button>
-    </div>
+    <div class="text-center m-3 d-flex flex-row ">
+      <button class="btn btn-dark col-6 mt-3 me-2 flex-grow-1" (click)="onSubmit()">Submit</button>
+      <button type="reset" class="btn btn-secondary col-6 mt-3 flex-grow-1">Reset</button>
+  </div>
   </form>
 </div>
