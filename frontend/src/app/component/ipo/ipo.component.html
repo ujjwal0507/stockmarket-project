@@ -1,0 +1,65 @@
+<app-navbar [state]="state"></app-navbar>
+<div class="container mt-5">
+  <div *ngIf="state==='admin'">
+    <div class="d-flex flex-row">
+      <h1 class="col-8">IPO</h1>
+      <button class="btn btn-dark col-4 p-0" height="20px" routerLink="/addIpo">+ Add IPO</button>
+    </div>
+    <div>
+      <ul class="list-group mt-5 align-items-right" *ngIf="ipos.length">
+        <li class="list-group-item d-flex flex-row">
+          <p class="col-2"><b>Company</b></p>
+          <p class="col-3"><b>Exchange</b></p>
+          <p class="col-1"><b>Price</b></p>
+          <p class="col-1"><b>Shares</b></p>
+          <p class="col-2"><b>Opening Time</b></p>
+          <p class="col-3"><b>Action</b></p>
+        </li>
+        <li class="list-group-item d-flex flex-row" *ngFor="let ipo of ipos">
+          <p class="col-2">{{ipo.company.name}}</p>
+          <p class="col-3">{{ipo.exchange.name}}</p>
+          <p class="col-1">{{ipo.pricePerShare | currency:'INR'}}</p>
+          <p class="col-1">{{ipo.totalShares}}</p>
+          <p class="col-2">{{ipo.openDateTime | date:'medium'}}</p>
+          <button class="btn btn-dark col-3" routerLink="/updateIpo/{{ipo.company.id}}">Edit</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div *ngIf="state==='user'">
+    <div class="d-flex flex-row mt-5">
+      <div class="dropdown col-12 p-0">
+        <button class="btn btn-light btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {{dropDownTitle}}
+        </button>
+        <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenuButton1">
+            <li class="btn dropdown-item p-2 ps-3" *ngFor="let ipo of ipos" (click)="onIpoSelected(ipo)">
+              {{ipo.company.name}}
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="btn dropdown-item" (click)="clearFilter()">
+              Clear Filter
+            </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <ul class="list-group mt-5 align-items-right" *ngIf="ipos.length">
+        <li class="list-group-item d-flex flex-row">
+          <p class="col-2"><b>Company</b></p>
+          <p class="col-3"><b>Exchange</b></p>
+          <p class="col-2"><b>Price</b></p>
+          <p class="col-2"><b>Shares</b></p>
+          <p class="col-3"><b>Opening Time</b></p>
+        </li>
+        <li class="list-group-item d-flex flex-row" *ngFor="let ipo of filteredIpo">
+          <p class="col-2">{{ipo.company.name}}</p>
+          <p class="col-3">{{ipo.exchange.name}}</p>
+          <p class="col-2">{{ipo.pricePerShare | currency:'INR'}}</p>
+          <p class="col-2">{{ipo.totalShares}}</p>
+          <p class="col-3">{{ipo.openDateTime | date:'medium'}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

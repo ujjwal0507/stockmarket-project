@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.stockmarket.companyservice.service.CompanyService;
 import com.stockmarket.companyservice.service.IpoService;
 
 @RestController
+@CrossOrigin(origins="*")
 @RequestMapping("/company")
 public class CompanyController {
 	
@@ -35,6 +37,7 @@ public class CompanyController {
 	
 	@PostMapping("/addCompany")
 	public ResponseEntity<Company> addCompany(@RequestBody Company company){
+		System.out.println("----------------\n\n\n\n\nHello\n\n\n\n----------------");
 		return ResponseEntity.ok(companyService.addCompany(company));
 	}
 	

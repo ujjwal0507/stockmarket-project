@@ -1,0 +1,55 @@
+<app-navbar [state]="state"></app-navbar>
+<div class="container d-flex flex-row justify-content-center">
+  <form class="form-div mt-5 col-9">
+    <h1 class="m-3" *ngIf="!this.companyId">
+      Add IPO
+    </h1>
+    <h1 class="m-3" *ngIf="this.companyId">
+      Update IPO
+    </h1>
+    <div class="d-flex flex-row mt-5">
+      <div class="dropdown col-12 p-0">
+        <button class="btn btn-light btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {{companyTitle}}
+        </button>
+        <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenuButton1">
+            <li class="btn dropdown-item p-2 ps-3" *ngFor="let company of companies" (click)="onCompanySelected(company)">
+              {{company.name}}
+            </li>
+        </ul>
+      </div>
+    </div>
+    <div class="d-flex flex-row mt-5">
+      <div class="dropdown col-12 p-0">
+        <button class="btn btn-light btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {{exchangeTitle}}
+        </button>
+        <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenuButton1">
+            <li class="btn dropdown-item p-2 ps-3" *ngFor="let exchange of exchanges" (click)="onExchangeSelected(exchange)">
+              {{exchange.name}}
+            </li>
+        </ul>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+      <label class="m-1">Price Per share</label>
+      <input type="number" name="pricePerShare" class="form-control" placeholder="Enter the price per share" required [(ngModel)]="ipo.pricePerShare">
+    </div>
+    <div class="form-group mt-3">
+      <label class="m-1">Total Shares</label>
+      <input type="number" name="totalShares" class="form-control" placeholder="Enter the total number of shares" required [(ngModel)]="ipo.totalShares">
+    </div>
+    <div class="form-group mt-3">
+      <label class="m-1">Opening Time</label>
+      <input type="datetime-local" name="openDateTime" class="form-control" placeholder="Enter the opening date" required [(ngModel)]="ipo.openDateTime">
+    </div>
+    <div class="form-group mt-3">
+      <label class="m-1">Remarks</label>
+      <input type="text" name="remark" class="form-control" placeholder="Enter remarks" required [(ngModel)]="ipo.remarks">
+    </div>
+    <div class="text-center mt-3 d-flex flex-row">
+        <button class="btn btn-dark col-6 mt-3 me-2 flex-grow-1" (click)="onSubmit()">Submit</button>
+        <button type="reset" class="btn btn-secondary col-6 mt-3 flex-grow-1" (click)="onReset()">Reset</button>
+    </div>
+  </form>
+</div>

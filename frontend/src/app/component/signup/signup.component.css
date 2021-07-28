@@ -1,0 +1,29 @@
+img{
+  width: 20%;
+  margin-top: 5%;
+}
+
+.form-group{
+  padding: 2%;
+}
+
+button{
+  margin: 8% 2%;
+}
+
+.form-div{
+  width: 30%;
+  margin: 3% auto;
+}
+
+@media only screen and (max-width: 992px){
+  .form-div{
+    width: 90%;
+    margin: 3% auto;
+  }
+
+  img{
+    width: 60%;
+    margin-top: 5%;
+  }
+}

@@ -1,0 +1,15 @@
+@media(min-width: 577px){
+  .btn-dark{
+    margin-left: 5%;
+  }
+}
+
+@media(max-width:576px){
+  .btn-dark{
+    margin-top: 10px;
+  }
+}
+
+/* .no-data{
+  align-items: center;
+} */

@@ -1,0 +1,25 @@
+<app-navbar [state]="state"></app-navbar>
+<div class="container mt-5">
+  <div class="d-flex flex-row">
+    <h1 class="col-8">Stock Exchanges</h1>
+    <button class="btn btn-dark col-4 p-0" routerLink="/addExchange">+ Add Exchange</button>
+  </div>
+  <div>
+    <ul class="list-group mt-5 align-items-right" *ngIf="exchanges.length">
+      <li class="list-group-item d-flex flex-row">
+        <p class="col-2"><b>Name</b></p>
+        <p class="col-3"><b>Address</b></p>
+        <p class="col-2"><b>Remark</b></p>
+        <p class="col-2"><b>Brief</b></p>
+        <p><b class="col-2">Action</b></p>
+      </li>
+      <li class="list-group-item d-flex flex-row" *ngFor="let exchange of exchanges">
+        <p class="col-2">{{exchange.name}}</p>
+        <p class="col-3">{{exchange.address.street+","+exchange.address.city+","+exchange.address.country+","+exchange.address.zip}}</p>
+        <p class="col-2">{{exchange.brief}}</p>
+        <p class="col-2">{{exchange.remark}}</p>
+        <button class="btn btn-dark col-3" routerLink="/stock">Add Companies</button>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<app-navbar [state]="state"></app-navbar>
+<div class="container d-flex flex-row justify-content-center">
+  <form class="form-div mt-5 col-9">
+    <h1 class="m-3" *ngIf="!this.companyId">
+      Add Company
+    </h1>
+    <h1 class="m-3" *ngIf="this.companyId">
+      Update Company
+    </h1>
+    <div class="form-group m-3">
+      <label class="m-1">Name</label>
+      <input type="text" name="name" class="form-control" placeholder="Enter name" required [(ngModel)]="company.name">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">Brief</label>
+      <input type="text" name="brief" class="form-control" placeholder="Enter Brief" required [(ngModel)]="company.brief">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">CEO</label>
+      <input type="text" name="ceo" class="form-control" placeholder="Enter CEO" required [(ngModel)]="company.ceo">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">Directors</label>
+      <input type="text" name="directors" class="form-control" placeholder="Enter Board of Directors" required [(ngModel)]="company.directors">
+    </div>
+    <div class="form-group m-3">
+      <label class="m-1">Turnover</label>
+      <input type="number" name="turnover" class="form-control" placeholder="Enter turnover" required [(ngModel)]="company.turnover">
+    </div>
+    <div class="d-flex flex-row m-3 mt-5">
+      <div class="dropdown col-12 p-0">
+        <button class="btn btn-light btn-secondary dropdown-toggle col-12" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          {{dropdownTitle}}
+        </button>
+        <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenuButton1">
+            <li class="btn dropdown-item p-2 ps-3" *ngFor="let sector of sectors" (click)="onSectorSelected(sector)">
+              {{sector.name}}
+            </li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center m-3 d-flex flex-row">
+      <button class="btn btn-dark col-6 mt-3 me-2 flex-grow-1" (click)="onSubmit()">Submit</button>
+      <button type="reset" class="btn btn-secondary col-6 mt-3 flex-grow-1" (click)="onReset()">Reset</button>
+  </div>
+  </form>
+</div>
