@@ -78,8 +78,10 @@ export class AddIpoComponent implements OnInit {
     if(this.companyId){
       this.ipoService.getIpoByCompany(this.companyId).subscribe(ipo=> {
         this.ipo = ipo;
+        console.log(this.ipo.openDateTime);
         this.companyTitle = this.ipo.company.name;
         this.exchangeTitle = this.ipo.exchange.name;
+        this.ipo.openDateTime = this.ipo.openDateTime.substr(0,16);
       });
     }
   }
